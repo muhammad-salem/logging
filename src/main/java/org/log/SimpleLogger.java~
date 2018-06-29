@@ -71,7 +71,7 @@ public class SimpleLogger implements Logger{
 		//}
 		log.append(' ');
 		if(title != null ) 
-			log.append (  ansi.Green("[ " + getStringMiddle(title, 20)  + " ]") );
+			log.append (  ansi.Green( ("[ " + getStringMiddle(title, 20)  + " ]") );
 		//else {
 		//	log.append("[ " + getStringMiddle(" ", 20)  + " ]");
 		//}

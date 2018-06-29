@@ -1,5 +1,11 @@
 package org.log;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import org.log.core.Logger;
 import org.log.level.LoggerDebug;
 import org.log.level.LoggerFine;
 import org.log.level.LoggerFiner;
@@ -9,19 +15,35 @@ import org.log.level.LoggerOff;
 import org.log.level.LoggerWarning;
 
 public class Log {
+
 	private  Log() {}
 
 	private static  Logger logger;
 
+    private static ConcurrentLinkedQueue<Message> queue = new ConcurrentLinkedQueue<>();
+    private static ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
     
     
-//	static {
-//		// default logger print all messages
-//		Level level = Level.all;
-//		String app_name = "log";
-//		setLogLevel(app_name, level);
-//		
-//	}
+    
+    private static void logScheduleAtFixedRate() {
+    	while (!queue.isEmpty()) {
+    		try {
+				logger.log(queue.remove());
+			} catch (Exception e1) {
+				
+			}
+		}
+	}
+    
+    
+    public static void  startLogging() {
+    	ex.scheduleAtFixedRate(Log::logScheduleAtFixedRate, 0, 100, TimeUnit.MILLISECONDS);
+	}
+    
+    public static void stopLogging() {
+		ex.shutdown();
+	}
+
 
 	/**
 	 * @param level
@@ -55,6 +77,7 @@ public class Log {
 			Log.setLogger(new SimpleLogger(app_name, System.out));
 			break;
 		}
+		getLogger().init(Log::startLogging);
 	}
 	
 	public static void setLogger(Logger logger) {
@@ -65,105 +88,111 @@ public class Log {
 		return logger;
 	}
 	
-	public static void info(String message) {
-		logger.info(message);
+	public static void print(String message) {
+		queue.offer(new Message(null, null, null, message));
 	}
+	
+	public static void println(String message) {
+		queue.offer(new Message(null, null, null, message+'\n'));
+	}
+	
 	
 	public static void debug(String message) {
-		logger.info(message);
+		queue.offer(Message.DebugMessage(message));
 	}
-
-	public static void warning(String message) {
-		logger.info(message);
-	}
-
-	public static void fine(String message) {
-		logger.fine(message);
-	}
-
-	public static void finer(String message) {
-		logger.finer(message);
-	}
-
-	public static void finest(String message) {
-		logger.finest(message);
-	}
-
 	
-	public static void info(Class<?> classname, String message) {
-		logger.info(classname, message);
-	}
-
 	public static void debug(Class<?> classname, String message) {
-		logger.debug(classname, message);
+		queue.offer(Message.DebugMessage(classname, message));
 	}
-
-	public static void warning(Class<?> classname, String message) {
-		logger.warning(classname, message);
-	}
-
-	public static void fine(Class<?> classname, String message) {
-		logger.fine(classname, message);
-	}
-
-	public static void finer(Class<?> classname, String message) {
-		logger.finer(classname, message);
-	}
-
-	public static void finest(Class<?> classname, String message) {
-		logger.finest(classname, message);
-	}
-
-	public static void info(String title, String message) {
-		logger.info(title, message);
-	}
-
+	
 	public static void debug(String title, String message) {
-		logger.debug(title, message);
+		queue.offer(Message.DebugMessage(title, message));
 	}
-
-	public static void warning(String title, String message) {
-		logger.warning(title, message);
-	}
-
-	public static void fine(String title, String message) {
-		logger.fine(title, message);
-	}
-
-	public static void finer(String title, String message) {
-		logger.finer(title, message);
-	}
-
-	public static void finest(String title, String message) {
-		logger.finest(title, message);
-	}
-	
-	
-	public static void info(Class<?> classname, String title, String message) {
-		logger.info(classname, title, message);
-	}
-
 	public static void debug(Class<?> classname, String title, String message) {
-		logger.debug(classname, title, message);
+		queue.offer(Message.DebugMessage(classname, title, message));
 	}
-
+	
+	
+	
+	public static void warning(String message) {
+		queue.offer(Message.WarningMessage(message));
+	}
+	
+	public static void warning(Class<?> classname, String message) {
+		queue.offer(Message.WarningMessage(classname, message));
+	}
+	
+	public static void warning(String title, String message) {
+		queue.offer(Message.WarningMessage(title, message));
+	}
 	public static void warning(Class<?> classname, String title, String message) {
-		logger.warning(classname, title, message);
+		queue.offer(Message.WarningMessage(classname, title, message));
 	}
-
+	
+	public static void info(String message) {
+		queue.offer(Message.InfoMessage(message));
+	}
+	public static void info(Class<?> classname, String message) {
+		queue.offer(Message.InfoMessage(classname, message));
+	}
+	public static void info(String title, String message) {
+		queue.offer(Message.InfoMessage(title, message));
+	}
+	public static void info(Class<?> classname, String title, String message) {
+		queue.offer(Message.InfoMessage(classname, title, message));
+	}
+	
+	
+	public static void fine(String message) {
+		queue.offer(Message.FineMessage(message));
+	}
+	public static void fine(Class<?> classname, String message) {
+		queue.offer(Message.FineMessage(classname, message));
+	}
+	public static void fine(String title, String message) {
+		queue.offer(Message.FineMessage(title, message));
+	}
 	public static void fine(Class<?> classname, String title, String message) {
-		logger.fine(classname, title, message);
+		queue.offer(Message.FineMessage(classname, title, message));
 	}
 
+	
+	
+	
+	
+	
+	public static void finer(String message) {
+		queue.offer(Message.FinerMessage(message));
+	}
+	public static void finer(Class<?> classname, String message) {
+		queue.offer(Message.FinerMessage(classname, message));
+	}
+	public static void finer(String title, String message) {
+		queue.offer(Message.FinerMessage(title, message));
+	}
 	public static void finer(Class<?> classname, String title, String message) {
-		logger.finer(classname, title, message);
+		queue.offer(Message.FinerMessage(classname, title, message));
 	}
-
+	
+	public static void finest(String message) {
+		queue.offer(Message.FinestMessage(message));
+	}
+	public static void finest(Class<?> classname, String message) {
+		queue.offer(Message.FinestMessage(classname, message));
+	}
+	public static void finest(String title, String message) {
+		queue.offer(Message.FinestMessage(title, message));
+	}
 	public static void finest(Class<?> classname, String title, String message) {
-		logger.finest(classname, title, message);
+		queue.offer(Message.FinestMessage(classname, title, message));
+	}
+	
+	
+	public static void log(Message message) {
+		queue.offer( message);
 	}
 	
 	public static void log(Level level, Class<?> classname, String title, String message) {
-		logger.log(level, classname, title, message);
+		queue.offer(new Message(level, classname, title, message));
 	}
 }
