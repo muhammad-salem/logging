@@ -79,7 +79,11 @@ public class SimpleLogger implements Logger{
 		//log.append("{ " + message  + " } ");
 		//print.println(log.toString());
 		//message = line + ' ' + message.replace("\n", "\n" + line + " " );
-		message = line +  ansi.Green(" {") +"\r\n\r" +  message.replace("\n", "\n" + Ansi.EraseLine + "\t" ) + ansi.Green("\n}\n");
+		message = line +  ansi.MagentaLight(" {") 
+				  +"\r\n\r\t" 
+				  +  message.replace("\n", Ansi.EraseEndofLine + "\n" + Ansi.EraseLine + "\t" ) 
+				  + ansi.MagentaLight("\n}") 
+				  + Ansi.EraseEndofLine + '\n' + Ansi.EraseEndofLine;
 		print.println(message);
 		
 	}

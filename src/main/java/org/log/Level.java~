@@ -11,7 +11,7 @@ public enum Level {
 		case debug:
 			return  ansi.Blue(ansi.Underscore(name()));
 		case warning:
-			return  ansi.RedLightbg(ansi.Underscore(name()));
+			return  ansi.RedLitebg(ansi.Underscore(name()));
 		case info:
 			return  ansi.Green(ansi.Underscore(name()));
 		case fine:

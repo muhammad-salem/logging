@@ -80,6 +80,8 @@ public class Log {
 		getLogger().init(Log::startLogging);
 	}
 	
+	
+	
 	public static void setLogger(Logger logger) {
 		Log.logger = logger; 
 	}
