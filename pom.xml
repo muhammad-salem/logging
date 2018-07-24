@@ -2,28 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.slf4j</groupId>
-	<artifactId>slf4j-ansi</artifactId>
-	<version>0.0.12</version>
+	<groupId>org.logging</groupId>
+	<artifactId>log</artifactId>
+	<version>0.2.53</version>
 	<dependencies>
-		
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.25</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-        	 <groupId>org.logging</groupId>
-  			<artifactId>log</artifactId>
-  			<version>0.2.53</version>
-        </dependency>
-        <dependency>
 			<groupId>org.terminal</groupId>
 			<artifactId>ansi</artifactId>
 			<version>0.1.95</version>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
