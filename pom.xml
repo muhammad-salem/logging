@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.logging</groupId>
 	<artifactId>log</artifactId>
-	<version>0.2.53</version>
+	<version>0.2.54</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.terminal</groupId>
 			<artifactId>ansi</artifactId>
-			<version>0.1.95</version>
+			<version>0.1.96</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
