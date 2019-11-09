@@ -1,11 +1,8 @@
-# logging  (0.2.54)
-
+# logging  (0.2.56)
 
  - new logging framework based on Service and Concurrency API 
-
- - build with jansi due to native code
  
 
 ##Screenshot
- ![img01](https://github.com/salemebo/logging/blob/master/img/img01.png) 
- ![img02](https://github.com/salemebo/logging/blob/master/img/img02.png)
+ ![img01](img/img01.png) 
+ ![img02](img/img02.png)
