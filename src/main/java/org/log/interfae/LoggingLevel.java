@@ -18,12 +18,12 @@ public interface LoggingLevel extends Logging {
 	
 	default void log(Level level, String message) {
 		if(isLevelEnbled(level))
-			log(level, null, "", message);
+			formater().log(level, null, null, message);
 	}
 	
 	default void log(Level level, Class<?> classname, String message) {
 		if(isLevelEnbled(level))
-			formater().log(level, classname, "", message);
+			formater().log(level, classname, null, message);
 	}
 	
 	default void log(Level level, Class<?> classname, String title, String message) {

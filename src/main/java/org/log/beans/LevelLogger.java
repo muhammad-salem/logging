@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import org.log.interfae.LogFormater;
 import org.log.interfae.LoggingLevel;
 
-public class LevelLogger extends Logger implements LoggingLevel{
+public class LevelLogger extends Logger implements LoggingLevel {
 
 
 	private Level level;

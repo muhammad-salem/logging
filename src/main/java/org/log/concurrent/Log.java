@@ -9,21 +9,22 @@ import org.log.beans.Message;
 import org.log.interfae.LogFormater;
 
 public final class Log {
+	private Log() {}
 
-	private Log() {
-	}
-
-	private static Logger logger;
+	private static Logger logger = Level.info.newLogger(System.out);
 	
 	public static void level(String levelName) {
+//		Log.logger = Level.valueOf(levelName).newLogger(System.out);
 		level(Level.valueOf(levelName), System.out);
 	}
 
 	public static void level(Level level) {
+//		Log.logger = level.newLogger(System.out);
 		level(level, System.out);
 	}
 
 	public static void level(Level level, PrintStream printStream) {
+//		Log.logger = level.newLogger(printStream);
 		setLogger(new LevelLogger(level, printStream));
 	}
 
@@ -101,6 +102,24 @@ public final class Log {
 
 	public static void fine(Class<?> classname, String title, String message) {
 		logger.log(Message.FineMessage(classname, title, message));
+	}
+	
+
+
+	public static void finer(String message) {
+		logger.log(Message.FinerMessage(message));
+	}
+
+	public static void finer(Class<?> classname, String message) {
+		logger.log(Message.FinerMessage(classname, message));
+	}
+
+	public static void finer(String title, String message) {
+		logger.log(Message.FinerMessage(title, message));
+	}
+
+	public static void finer(Class<?> classname, String title, String message) {
+		logger.log(Message.FinerMessage(classname, title, message));
 	}
 
 	public static void error(String message) {

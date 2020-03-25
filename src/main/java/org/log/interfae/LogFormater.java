@@ -60,6 +60,7 @@ public interface LogFormater extends Colors, ErasingText  {
 	}
 	
 	void log(Message message);
+	
 	default void log(Level level, Class<?> classname, String title, String message) {
 		log(new Message(level, classname, title, message));
 	}

@@ -1,6 +1,6 @@
 package org.log.interfae;
 
-public interface AdvancedLog extends BaseLog{
+public interface AdvancedLog extends BaseLog {
 	
 	
 	void info(Class<?> classname, String message);

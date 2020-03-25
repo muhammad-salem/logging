@@ -21,7 +21,7 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.debug, getObjectClass(), message);
 	}
 	
-	default void warn(String message) {
+	default void warning(String message) {
 		log(Level.warn, getObjectClass(), message);
 	}
 	
@@ -45,7 +45,7 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.debug, getObjectClass(), title, message);
 	}
 	
-	default void warn(String title, String message) {
+	default void warning(String title, String message) {
 		log(Level.warn, getObjectClass(), title, message);
 	}
 	

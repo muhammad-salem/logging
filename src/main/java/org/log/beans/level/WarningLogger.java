@@ -15,79 +15,28 @@ public class WarningLogger extends Logger {
 		super(formate);
 	}
 	
+	@Override public void info(String message) {}
+	@Override public void debug(String message) {}
+	@Override public void trace(String message) {}
+	@Override public void fine(String message) {}
+	@Override public void finer(String message) {}
 
-	
-//	public void debug(String message) {
-//		log(Level.debug, message);
-//	}
-//
-//	public void warning(String message) {
-//		log(Level.warning, message);
-//	}
-	
-	public void info(String message) {
-		
-	}
-	public void fine(String message) {
-		
-	}
+	@Override public void info(Class<?> classname, String message) {}
+	@Override public void debug(Class<?> classname, String message) {}
+	@Override public void trace(Class<?> classname, String message) {}
+	@Override public void fine(Class<?> classname, String message) {}
+	@Override public void finer(Class<?> classname, String message) {}
 
-	public void trace(String message) {
-		
-	}
+	@Override public void info(String title, String message) {}
+	@Override public void debug(String title, String message) {}
+	@Override public void trace(String title, String message) {}
+	@Override public void fine(String title, String message) {}
+	@Override public void finer(String title, String message) {}
 
-	public void finest(String message) {
-		
-	}
-
-
-
-//	public void debug(Class<?> classname, String message) {
-//		log(Level.debug, classname, message);
-//	}
-//
-//	public void warning(Class<?> classname, String message) {
-//		log(Level.warning, classname, message);
-//	}
-	
-	public void info(Class<?> classname, String message) {
-		
-	}
-	public void fine(Class<?> classname, String message) {
-		
-	}
-
-	public void trace(Class<?> classname, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String message) {
-		
-	}
-
-
-//	public void debug(Class<?> classname, String title, String message) {
-//		log(Level.debug, classname, title, message);
-//	}
-//
-//	public void warning(Class<?> classname, String title, String message) {
-//		log(Level.warning, classname, title, message);
-//	}
-	
-	public void info(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void fine(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finer(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String title, String message) {
-		
-	}
+	@Override public void info(Class<?> classname, String title, String message) {}
+	@Override public void debug(Class<?> classname, String title, String message) {}
+	@Override public void trace(Class<?> classname, String title, String message) {}
+	@Override public void fine(Class<?> classname, String title, String message) {}
+	@Override public void finer(Class<?> classname, String title, String message) {}
 	
 }

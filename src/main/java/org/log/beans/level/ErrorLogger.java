@@ -15,80 +15,33 @@ public class ErrorLogger extends Logger {
 		super(logFormate);
 	}
 	
+
+	@Override public void warning(String message) {}
+	@Override public void info(String message) {}
+	@Override public void debug(String message) {}
+	@Override public void trace(String message) {}
+	@Override public void fine(String message) {}
+	@Override public void finer(String message) {}
+
+	@Override public void warning(Class<?> classname, String message) {}
+	@Override public void info(Class<?> classname, String message) {}
+	@Override public void debug(Class<?> classname, String message) {}
+	@Override public void trace(Class<?> classname, String message) {}
+	@Override public void fine(Class<?> classname, String message) {}
+	@Override public void finer(Class<?> classname, String message) {}
+
+	@Override public void warning(String title, String message) {}
+	@Override public void info(String title, String message) {}
+	@Override public void debug(String title, String message) {}
+	@Override public void trace(String title, String message) {}
+	@Override public void fine(String title, String message) {}
+	@Override public void finer(String title, String message) {}
+
+	@Override public void warning(Class<?> classname, String title, String message) {}
+	@Override public void info(Class<?> classname, String title, String message) {}
+	@Override public void debug(Class<?> classname, String title, String message) {}
+	@Override public void trace(Class<?> classname, String title, String message) {}
+	@Override public void fine(Class<?> classname, String title, String message) {}
+	@Override public void finer(Class<?> classname, String title, String message) {}
 	
-	public void info(String message) {
-		
-	}
-	
-	public void debug(String message) {
-		
-	}
-
-	public void warn(String message) {
-		
-	}
-
-	public void fine(String message) {
-		
-	}
-
-	public void trace(String message) {
-		
-	}
-
-	public void finest(String message) {
-		
-	}
-
-	
-	public void info(Class<?> classname, String message) {
-		
-	}
-
-	public void debug(Class<?> classname, String message) {
-		
-	}
-
-	public void warning(Class<?> classname, String message) {
-		
-	}
-
-	public void fine(Class<?> classname, String message) {
-		
-	}
-
-	public void trace(Class<?> classname, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String message) {
-		
-	}
-
-	
-	public void info(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void debug(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void warning(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void fine(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finer(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String title, String message) {
-		
-	}
-	
-
 }

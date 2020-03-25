@@ -14,43 +14,25 @@ public class InfoLogger extends Logger {
 	public InfoLogger(LogFormater formate) {
 		super(formate);
 	}
-	
 
-	public void fine(String message) {
-		
-	}
+	@Override public void debug(String message) {}
+	@Override public void trace(String message) {}
+	@Override public void fine(String message) {}
+	@Override public void finer(String message) {}
 
-	public void trace(String message) {
-		
-	}
+	@Override public void debug(Class<?> classname, String message) {}
+	@Override public void trace(Class<?> classname, String message) {}
+	@Override public void fine(Class<?> classname, String message) {}
+	@Override public void finer(Class<?> classname, String message) {}
 
-	public void finest(String message) {
-		
-	}
+	@Override public void debug(String title, String message) {}
+	@Override public void trace(String title, String message) {}
+	@Override public void fine(String title, String message) {}
+	@Override public void finer(String title, String message) {}
 
-	public void fine(Class<?> classname, String message) {
-		
-	}
-
-	public void trace(Class<?> classname, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String message) {
-		
-	}
-	
-
-	public void fine(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finer(Class<?> classname, String title, String message) {
-		
-	}
-
-	public void finest(Class<?> classname, String title, String message) {
-		
-	}
+	@Override public void debug(Class<?> classname, String title, String message) {}
+	@Override public void trace(Class<?> classname, String title, String message) {}
+	@Override public void fine(Class<?> classname, String title, String message) {}
+	@Override public void finer(Class<?> classname, String title, String message) {}
 	
 }
