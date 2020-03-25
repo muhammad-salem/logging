@@ -3,7 +3,7 @@ package org.log.interfae;
 import org.log.beans.Level;
 import org.log.beans.Message;
 
-public interface LoggingLevel extends Logging{
+public interface LoggingLevel extends Logging {
 	
 	Level getLevel();
 	
@@ -32,8 +32,9 @@ public interface LoggingLevel extends Logging{
 	}
 	
 	default void log(Message message) {
-		if(message.getLevel().ordinal() <= getLevel().ordinal())
+		if(message.getLevel().ordinal() <= getLevel().ordinal()){
 			formater().log(message);
+		}
 	}
 	
 	

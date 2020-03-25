@@ -8,8 +8,10 @@ import java.util.Date;
 import org.log.beans.Level;
 import org.log.beans.Message;
 import org.terminal.Ansi;
+import org.terminal.ansi.Colors;
+import org.terminal.ansi.ErasingText;
 
-public interface LogFormater {
+public interface LogFormater extends Colors, ErasingText  {
 	
 	public static final LogFormater DefaultFormater = getDefaultFormater(System.out);
 	
@@ -27,8 +29,8 @@ public interface LogFormater {
 			
 			@Override
 			public void log(Message message) {
-				String msg = message.getMessage().replace("\n", Ansi.EraseEndofLine + "\n" + Ansi.EraseLine + "  ");
-				Object[] args = { hhmmss(), message.level(), message.classname() , message.getTitle(), msg };
+				String msg = message.message().replace("\n", Ansi.EraseEndofLine + "\n" + Ansi.EraseLine + "  ");
+				Object[] args = { hhmmss(), message.level(), message.classname() , message.title(), msg };
 				printStream.println( messageFormat.format(args) );
 			}
 			private String getMessagePattern() {

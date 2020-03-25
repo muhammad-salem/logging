@@ -1,4 +1,4 @@
-# logging  (0.2.56)
+# logging  (0.2.57)
 
  - new logging framework based on Service and Concurrency API 
  

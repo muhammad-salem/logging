@@ -14,13 +14,13 @@ public class LevelLogger extends Logger implements LoggingLevel{
 	 * create default info -> level, System.out -> printStream.
 	 */
 	public LevelLogger() {
-		this(Level.info, LogFormates.getDefaultFormat(System.out));
+		this(Level.info, new PrintFormater(System.out));
 	}
 	public LevelLogger(Level level) {
-		this(level, LogFormates.getDefaultFormat(System.out));
+		this(level, new PrintFormater(System.out));
 	}
 	public LevelLogger(Level level, PrintStream printStream) {
-		this(level, LogFormates.getDefaultFormat(printStream));
+		this(level, new PrintFormater(printStream));
 	}
 	public LevelLogger(Level level, LogFormater logFormate) {
 		this.level = level;

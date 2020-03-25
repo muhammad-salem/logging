@@ -1,26 +1,6 @@
 package org.log.beans;
 
 public class Message {
-
-	private Level level;
-	private Class<?> classname;
-	private String title;
-	private String message;
-
-	public Message() {
-		level = Level.off;
-		classname = getClass();
-		title = null;
-		message = null;
-	}
-
-	public Message(Level level, Class<?> classname, String title, String message) {
-		this.level = level;
-		this.classname = classname;
-		this.title = title;
-		this.message = message;
-	}
-	
 	public static Message ErrorMessage(Class<?> classname, String title, String message) {
 		return new Message(Level.error, classname, title, message);
 	}
@@ -121,7 +101,27 @@ public class Message {
 	
 	
 
-	// pojo
+
+	private Level level;
+	private Class<?> classname;
+	private String title;
+	private String message;
+
+	public Message() {
+		level = Level.off;
+		classname = getClass();
+		title = null;
+		message = null;
+	}
+
+	public Message(Level level, Class<?> classname, String title, String message) {
+		this.level = level;
+		this.classname = classname;
+		this.title = title;
+		this.message = message;
+	}
+	
+
 	
 	public String level() {
 		return level.toString();
@@ -130,49 +130,49 @@ public class Message {
 	public Level getLevel() {
 		return level;
 	}
-
-	public void setLevel(Level level) {
-		this.level = level;
-	}
-
-	public Class<?> getClassname() {
-		return classname;
-	}
+//
+//	public void setLevel(Level level) {
+//		this.level = level;
+//	}
+//
+//	public Class<?> getClassname() {
+//		return classname;
+//	}
 	
 	public String classname() {
-		return classname == null ? "" : classname.getSimpleName();
+		return classname.getSimpleName();
 	}
 
-	public void setClassname(Class<?> classname) {
-		this.classname = classname;
+//	public void setClassname(Class<?> classname) {
+//		this.classname = classname;
+//	}
+
+	public String title() {
+		return title;
 	}
 
-	public String getTitle() {
-		return title != null ? title : "" ;
-	}
+//	public void setTitle(String title) {
+//		this.title = title;
+//	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getMessage() {
+	public String message() {
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+//	public void setMessage(String message) {
+//		this.message = message;
+//	}
 
-	@Override
-	public String toString() {
-		StringBuilder log = new StringBuilder();
-		log.append("[ " + level.toString() + " ] ");
-		if (classname != null)
-			log.append("[ " + classname.getSimpleName() + " ] ");
-		if (title != null)
-			log.append("[ " + title + " ]");
-		String line = log.toString();
-		return line + " " + message.replace("\n", "\n" + line + " ");
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder log = new StringBuilder();
+//		log.append("[ " + level.toString() + " ] ");
+//		if (classname != null)
+//			log.append("[ " + classname.getSimpleName() + " ] ");
+//		if (title != null)
+//			log.append("[ " + title + " ]");
+//		String line = log.toString();
+//		return line + " " + message.replace("\n", "\n" + line + " ");
+//	}
 
 }
