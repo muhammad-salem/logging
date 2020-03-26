@@ -13,6 +13,10 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.info,getObjectClass(), message);
 	}
 	
+	default void log(String message) {
+		log(Level.log,getObjectClass(), message);
+	}
+	
 	default void error(String message) {
 		log(Level.error, getObjectClass(), message);
 	}
@@ -21,12 +25,8 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.debug, getObjectClass(), message);
 	}
 	
-	default void warning(String message) {
+	default void warn(String message) {
 		log(Level.warn, getObjectClass(), message);
-	}
-	
-	default void fine(String message) {
-		log(Level.fine, getObjectClass(), message);
 	}
 	
 	default void trace(String message) {
@@ -37,6 +37,10 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.info, getObjectClass(), title, message);
 	}
 	
+	default void log(String title, String message) {
+		log(Level.log, getObjectClass(), title, message);
+	}
+	
 	default void error(String title, String message) {
 		log(Level.error, getObjectClass(), title, message);
 	}
@@ -45,13 +49,10 @@ public interface ClassLogging extends Logging, BaseLog {
 		log(Level.debug, getObjectClass(), title, message);
 	}
 	
-	default void warning(String title, String message) {
+	default void warn(String title, String message) {
 		log(Level.warn, getObjectClass(), title, message);
 	}
 	
-	default void fine(String title, String message) {
-		log(Level.fine, getObjectClass(), title, message);
-	}
 	
 	default void trace(String title, String message) {
 		log(Level.trace, getObjectClass(), title, message);

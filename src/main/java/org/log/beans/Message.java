@@ -66,39 +66,6 @@ public class Message {
 		return new Message(Level.info, null, null, message);
 	}
 	
-	
-	public static Message FineMessage(Class<?> classname, String title, String message) {
-		return new Message(Level.fine, classname, title, message);
-	}
-
-	public static Message FineMessage(String title, String message) {
-		return new Message(Level.fine, null, title, message);
-	}
-
-	public static Message FineMessage(Class<?> classname, String message) {
-		return new Message(Level.fine, classname, null, message);
-	}
-
-	public static Message FineMessage(String message) {
-		return new Message(Level.fine, null, null, message);
-	}
-	
-	public static Message FinerMessage(Class<?> classname, String title, String message) {
-		return new Message(Level.finer, classname, title, message);
-	}
-
-	public static Message FinerMessage(String title, String message) {
-		return new Message(Level.finer, null, title, message);
-	}
-
-	public static Message FinerMessage(Class<?> classname, String message) {
-		return new Message(Level.finer, classname, null, message);
-	}
-
-	public static Message FinerMessage(String message) {
-		return new Message(Level.finer, null, null, message);
-	}
-	
 	public static Message TraceMessage(Class<?> classname, String title, String message) {
 		return new Message(Level.trace, classname, title, message);
 	}

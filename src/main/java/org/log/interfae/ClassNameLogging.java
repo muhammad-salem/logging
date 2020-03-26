@@ -25,8 +25,8 @@ public interface ClassNameLogging extends Logging, BaseLog {
 		log(Level.warn, getClassName(), message);
 	}
 	
-	default void fine(String message) {
-		log(Level.fine, getClassName(), message);
+	default void log(String message) {
+		log(Level.log, getClassName(), message);
 	}
 	
 	default void trace(String message) {

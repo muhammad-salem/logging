@@ -8,7 +8,7 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.error, message);
 	}
 	
-	default void warning(String message) {
+	default void warn(String message) {
 		log(Level.warn, message);
 	}
 	
@@ -23,14 +23,10 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 	default void trace(String message) {
 		log(Level.trace, message);
 	}
-
-	default void fine(String message) {
-		log(Level.fine, message);
+	default void log(String message) {
+		log(Level.log, message);
 	}
 
-	default void finer(String message) {
-		log(Level.finer, message);
-	}
 	
 	
 
@@ -39,7 +35,7 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.error, classname, message);
 	}
 	
-	default void warning(Class<?> classname, String message) {
+	default void warn(Class<?> classname, String message) {
 		log(Level.warn, classname, message);
 	}
 	
@@ -55,21 +51,17 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.trace, classname, message);
 	}
 
-	default void fine(Class<?> classname, String message) {
-		log(Level.fine, classname, message);
+	default void log(Class<?> classname, String message) {
+		log(Level.log, classname, message);
 	}
 
-	default void finer(Class<?> classname, String message) {
-		log(Level.trace, classname, message);
-	}
-	
 	
 	
 	default void error(String title, String message) {
 		log(Level.error, title, message);
 	}
 	
-	default void warning(String title, String message) {
+	default void warn(String title, String message) {
 		log(Level.warn, title, message);
 	}
 	
@@ -85,13 +77,10 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.trace, title, message);
 	}
 
-	default void fine(String title, String message) {
-		log(Level.fine, title, message);
+	default void log(String title, String message) {
+		log(Level.log, title, message);
 	}
 
-	default void finer(String title, String message) {
-		log(Level.trace, title, message);
-	}
 
 
 	
@@ -99,7 +88,7 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.error, classname, title, message);
 	}
 	
-	default void warning(Class<?> classname, String title, String message) {
+	default void warn(Class<?> classname, String title, String message) {
 		log(Level.warn, classname, title, message);
 	}
 	
@@ -115,12 +104,7 @@ public interface LoggingInterface extends Logging, AdvancedLog {
 		log(Level.trace, classname, title, message);
 	}
 
-	default void fine(Class<?> classname, String title, String message) {
-		log(Level.fine, classname, title, message);
+	default void log(Class<?> classname, String title, String message) {
+		log(Level.log, classname, title, message);
 	}
-
-	default void finer(Class<?> classname, String title, String message) {
-		log(Level.fine, classname, title, message);
-	}
-
 }
